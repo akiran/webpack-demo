@@ -1,6 +1,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack-bundle-analyzer stats.json
 // https://webpack.github.io/analyse
 
@@ -9,7 +10,7 @@ module.exports = function(env) {
     entry: './src/app.js',
     output: {
       path: path.join(__dirname, 'dist'),
-      filename: 'app.js'
+      filename: 'app.[chunkhash].js'
     },
     module: {
       rules: [
@@ -34,7 +35,8 @@ module.exports = function(env) {
         'process.env': {
           NODE_ENV: JSON.stringify(env.production ? 'production' : 'development')
         }
-      })
+      }),
+      new HtmlWebpackPlugin({template: './src/index.html'})
     ].filter(p => !!p),
     resolve: {
       modules: [path.resolve(__dirname, "src"), 'node_modules'],

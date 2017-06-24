@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --env.development",
-    "prestart": "npm-run-all -p copy-html",
     "copy-html": "cp ./src/index.html ./dist/",
     "build": "webpack --env.development",
     "build:stats": "webpack --env.development --json > stats.json",
@@ -27,6 +26,7 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.28.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "2.8.1",
