@@ -24,8 +24,6 @@ module.exports = function(env) {
     devServer: {
       historyApiFallback: true,
       contentBase: './dist',
-      inline: true,
-      stats: 'errors-only',
     }
   }
 }
