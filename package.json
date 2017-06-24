@@ -8,6 +8,7 @@
     "prestart": "npm-run-all -p copy-html",
     "copy-html": "cp ./src/index.html ./dist/",
     "build": "webpack --env.development",
+    "build:stats": "webpack --env.development --json > stats.json",
     "build:prod": "webpack --env.production"
   },
   "author": "",
