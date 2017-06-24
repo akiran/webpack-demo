@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --env.development",
     "prestart": "npm-run-all -p copy-html",
-    "copy-html": "cp ./src/index.html ./dist",
+    "copy-html": "cp ./src/index.html ./dist/",
     "build": "webpack --env.development",
     "build:prod": "webpack --env.production"
   },
