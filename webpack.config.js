@@ -28,6 +28,9 @@ module.exports = function(env) {
     plugins: [
       new ExtractTextPlugin("styles.css"),
     ],
+    resolve: {
+      modules: [path.resolve(__dirname, "src"), 'node_modules'],
+    },
     devServer: {
       historyApiFallback: true,
       contentBase: './dist',
