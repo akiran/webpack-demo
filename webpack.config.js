@@ -28,7 +28,12 @@ module.exports = function(env) {
     },
     plugins: [
       new ExtractTextPlugin("styles.css"),
-      env.production ?  new webpack.optimize.UglifyJsPlugin({}): null
+      env.production ?  new webpack.optimize.UglifyJsPlugin({}): null,
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(env.production ? 'production' : 'development')
+        }
+      })
     ].filter(p => !!p),
     resolve: {
       modules: [path.resolve(__dirname, "src"), 'node_modules'],
