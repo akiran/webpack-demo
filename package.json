@@ -8,7 +8,7 @@
     "prestart": "npm-run-all -p copy-html",
     "copy-html": "cp ./src/index.html ./dist/",
     "build": "webpack --env.development",
-    "build:prod": "webpack --env.production -p"
+    "build:prod": "webpack --env.production"
   },
   "author": "",
   "license": "ISC",

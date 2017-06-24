@@ -1,5 +1,6 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = function(env) {
   console.log(env)
@@ -16,7 +17,7 @@ module.exports = function(env) {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",
-            use: "css-loader"
+            use: "css-loader",
           })
         },
         {
@@ -27,7 +28,8 @@ module.exports = function(env) {
     },
     plugins: [
       new ExtractTextPlugin("styles.css"),
-    ],
+      env.production ?  new webpack.optimize.UglifyJsPlugin({}): null
+    ].filter(p => !!p),
     resolve: {
       modules: [path.resolve(__dirname, "src"), 'node_modules'],
     },
