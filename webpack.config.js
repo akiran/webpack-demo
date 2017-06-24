@@ -1,7 +1,9 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
-// webpack-bundle-analyzer stats.json 
+// webpack-bundle-analyzer stats.json
+// https://webpack.github.io/analyse
+
 module.exports = function(env) {
   return {
     entry: './src/app.js',
