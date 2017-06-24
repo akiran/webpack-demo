@@ -14,6 +14,10 @@ module.exports = function(env) {
         {
           test: /\.css$/,
           use: [ 'style-loader', 'css-loader' ]
+        },
+        {
+          test: /\.png$/,
+          use: 'file-loader'
         }
       ]
     }

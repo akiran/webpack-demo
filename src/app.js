@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Button from './components/Button'
+import userIcon from './images/user.png'
 
 export default class HelloWorld extends React.Component {
   render() {
@@ -12,6 +13,7 @@ export default class HelloWorld extends React.Component {
           <Button type='warning'>Warning Button</Button>
           <Button type='error'>Error Button</Button>
         </div>
+        <img src={userIcon} />
       </div>
     )
   }
