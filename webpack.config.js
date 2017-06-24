@@ -20,6 +20,12 @@ module.exports = function(env) {
           use: 'file-loader'
         }
       ]
+    },
+    devServer: {
+      historyApiFallback: true,
+      contentBase: './dist',
+      inline: true,
+      stats: 'errors-only',
     }
   }
 }
