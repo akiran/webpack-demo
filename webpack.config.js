@@ -1,4 +1,5 @@
-var path = require('path')
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = function(env) {
   console.log(env)
@@ -13,7 +14,10 @@ module.exports = function(env) {
         {test: /\.js$/, use: 'babel-loader'},
         {
           test: /\.css$/,
-          use: [ 'style-loader', 'css-loader' ]
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+          })
         },
         {
           test: /\.png$/,
@@ -21,6 +25,9 @@ module.exports = function(env) {
         }
       ]
     },
+    plugins: [
+      new ExtractTextPlugin("styles.css"),
+    ],
     devServer: {
       historyApiFallback: true,
       contentBase: './dist',
